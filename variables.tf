@@ -48,4 +48,15 @@ variable "private_subnet_cidr" {
 variable "private_subnet_tags" {
   default = {}
 }
+variable "database_subnet_cidr" {
+  type = list(any)
+  validation {
+    condition     = length(var.database_subnet_cidr) == 2
+    error_message = "please give 2 database valid subnet"
+ }
+}
+variable "database_subnet_tags" {
+  default = {}
+}
+
 
